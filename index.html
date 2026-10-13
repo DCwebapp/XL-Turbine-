@@ -52,11 +52,6 @@ img{max-width:100%}
 .dd:hover .dd-menu,.dd:focus-within .dd-menu,.dd.open .dd-menu{opacity:1;visibility:visible;transform:none}
 .dd:hover .dd-btn svg,.dd.open .dd-btn svg{transform:rotate(180deg)}
 .dd-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
-.cert-tbl{width:100%;border-collapse:collapse;font-size:15px}
-.cert-tbl th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:.06em;color:#A8A39A;text-align:left;padding:12px 16px;border-bottom:1px solid #2A2A2A}
-.cert-tbl td{padding:14px 16px;border-bottom:1px solid #1E1E1E;vertical-align:top}
-.cert-tbl td:first-child{font-weight:800;white-space:nowrap}
-.tbl-wrap{overflow-x:auto;border:1px solid #262626;border-radius:8px;background:#111}
 .mbar{display:none}
 @media (max-width:760px){
  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid #262626}
@@ -106,7 +101,6 @@ img{max-width:100%}
 <div class="dd-menu" id="dd-about">
 <a href="#about">About XL Turbine</a>
 <a href="#certifications">Certifications</a>
-<a href="#competency">Competency List</a>
 </div>
 </div>
 <a href="#contact" style="color: #F4F1EA; text-decoration: none; padding: 12px 0">Contact</a>
@@ -298,7 +292,7 @@ Watch the test stand in action
 <h2 style="margin: 0 0 20px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700; max-width: 760px">A specialist Part 145 shop for P&amp;WC fuel nozzles.</h2>
 <p style="margin: 0 0 56px; color: #C9C4BA; max-width: 760px">XL Turbine is an EASA Part 145 approved maintenance organisation (HR.145.051) based in Zagreb, Croatia. Our core work is inspection, testing, repair, overhaul and exchange of fuel nozzles for Pratt &amp; Whitney Canada PT6A, PT6T, PT6C and PW200 engines – backed by our own fuel nozzle test stand and exchange stock – complemented by independent pre-buy inspections. [ Add a few words about the company: founding year, team experience, customers. ]</p>
 
-<div id="certifications" style="scroll-margin-top: 16px; margin-bottom: 64px">
+<div id="certifications" style="scroll-margin-top: 16px">
 <h3 style="margin: 0 0 20px; font-size: 24px; font-weight: 700">Certifications</h3>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
 <div style="background: #141414; border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 24px">
@@ -316,21 +310,6 @@ Watch the test stand in action
 </div>
 </div>
 
-<div id="competency" style="scroll-margin-top: 16px">
-<h3 style="margin: 0 0 8px; font-size: 24px; font-weight: 700">Competency List</h3>
-<p style="margin: 0 0 20px; color: #A8A39A; font-size: 15px">Scope of work on fuel nozzles under our Part 145 approval. [ Confirm against the approved capability list. ]</p>
-<div class="tbl-wrap">
-<table class="cert-tbl">
-<thead><tr><th scope="col">ENGINE</th><th scope="col">COMPONENT</th><th scope="col">CAPABILITY</th><th scope="col">P/N</th></tr></thead>
-<tbody>
-<tr><td>PT6A</td><td>Fuel nozzles (simplex / duplex)</td><td>Inspection, test, repair, overhaul, exchange</td><td style="color:#8A857C">[ P/N list ]</td></tr>
-<tr><td>PT6T</td><td>Fuel nozzles</td><td>Inspection, test, repair, overhaul, exchange</td><td style="color:#8A857C">[ P/N list ]</td></tr>
-<tr><td>PT6C</td><td>Fuel nozzles (e.g. PT6C-67C)</td><td>Inspection, test, repair, overhaul, exchange</td><td style="color:#8A857C">[ P/N list ]</td></tr>
-<tr><td>PW200</td><td>Fuel nozzles</td><td>Inspection, test, repair, overhaul, exchange</td><td style="color:#8A857C">[ P/N list ]</td></tr>
-</tbody>
-</table>
-</div>
-<a href="#contact" style="display: inline-flex; margin-top: 20px; font-weight: 700; text-decoration: none; min-height: 44px; align-items: center">[ Download full competency list (PDF) ] →</a>
 </div>
 </div>
 </section>
