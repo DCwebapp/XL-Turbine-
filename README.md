@@ -7,6 +7,7 @@ Početna stranica XL Turbine (engleski), objavljena preko GitHub Pagesa.
 - `fonts/` – Montserrat i IBM Plex Mono (SIL Open Font License, vidi `fonts/OFL-*.txt`), učitavaju se lokalno, bez Google Fonts
 - `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` – ikone
 - `og-image.jpg` – slika koja se prikazuje kad se link podijeli
+- `docs/` – EASA Part 145 certifikat HR.145.051 (PDF)
 
 ## Kontakt obrazac
 Upiti se šalju na sales@xlturbine.com preko FormSubmit.co.

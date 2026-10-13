@@ -52,6 +52,14 @@ img{max-width:100%}
 .dd:hover .dd-menu,.dd:focus-within .dd-menu,.dd.open .dd-menu{opacity:1;visibility:visible;transform:none}
 .dd:hover .dd-btn svg,.dd.open .dd-btn svg{transform:rotate(180deg)}
 .dd-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+.cert-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:24px;align-items:stretch}
+@media (max-width:760px){.cert-grid{grid-template-columns:1fr}.cert-prev{max-width:320px}}
+.cert-prev{display:block;background:#fff;border-radius:6px;overflow:hidden;border:1px solid #262626;max-width:420px;transition:transform .2s,box-shadow .2s}
+.cert-prev img{display:block;width:100%;height:auto}
+.cert-prev:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.cert-dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:4px 0 0;font-size:14px}
+.cert-dl dt{color:#A8A39A;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.cert-dl dd{margin:0;color:#F4F1EA;font-weight:600}
 .mbar{display:none}
 @media (max-width:760px){
  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid #262626}
@@ -294,20 +302,27 @@ Watch the test stand in action
 
 <div id="certifications" style="scroll-margin-top: 16px">
 <h3 style="margin: 0 0 20px; font-size: 24px; font-weight: 700">Certifications</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
-<div style="background: #141414; border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 24px">
-<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em; margin-bottom: 8px">MAINTENANCE ORGANISATION APPROVAL</div>
-<div style="font-size: 22px; font-weight: 800; margin-bottom: 6px">EASA Part 145</div>
-<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 15px; color: var(--accent); margin-bottom: 12px">HR.145.051</div>
-<div style="color: #C9C4BA; font-size: 14px; margin-bottom: 16px">Issued by the Croatian Civil Aviation Agency. Components released with EASA Form 1.</div>
-<a href="#contact" style="font-weight: 700; text-decoration: none; font-size: 14px">[ Download certificate (PDF) ] →</a>
+<div class="cert-grid">
+<a href="docs/XL-Turbine-EASA-Part-145-HR.145.051.pdf" target="_blank" rel="noopener" class="cert-prev" aria-label="Open EASA Part 145 certificate HR.145.051 (PDF)">
+<img src="assets/cert-hr-145-051-preview.jpg" alt="EASA Part 145 Maintenance Organisation Certificate HR.145.051, Croatian Civil Aviation Agency" width="420" height="591" loading="lazy">
+</a>
+<div style="background: #141414; border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em">MAINTENANCE ORGANISATION CERTIFICATE</div>
+<div style="font-size: 24px; font-weight: 800; line-height: 1.2">EASA Part 145</div>
+<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 16px; color: var(--accent)">HR.145.051</div>
+<dl class="cert-dl">
+<dt>Issued by</dt><dd>Croatian Civil Aviation Agency (CCAA)</dd>
+<dt>Holder</dt><dd>XL Turbine d.o.o., Zagreb</dd>
+<dt>Class</dt><dd>Components other than complete engines or APUs</dd>
+<dt>Rating</dt><dd>C7 – Engine / APU</dd>
+<dt>Limitation</dt><dd>Components per Capability List in the company MOE</dd>
+<dt>Original issue</dt><dd>3 February 2026</dd>
+</dl>
+<div style="color: #C9C4BA; font-size: 14px">Components are released to service with EASA Form 1.</div>
+<a href="docs/XL-Turbine-EASA-Part-145-HR.145.051.pdf" target="_blank" rel="noopener" style="margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-decoration: none; min-height: 44px">Download certificate (PDF, 410 KB) →</a>
 </div>
-<div style="background: #141414; border: 1px dashed #3A3A3A; border-radius: 6px; padding: 24px; color: #8A857C">
-<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; margin-bottom: 8px">[ OTHER APPROVAL ]</div>
-<div style="font-size: 18px; font-weight: 700; margin-bottom: 6px">[ e.g. other authority acceptance / ISO ]</div>
-<div style="font-size: 14px">[ Certificate number, issuing authority ]</div>
 </div>
-</div>
+
 </div>
 
 </div>
