@@ -28,7 +28,7 @@
 :root{--accent:#E2B85A;color-scheme:dark}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#E2B85A}}
 :root[data-theme="dark"]{--accent:#E2B85A}
-html,body{margin:0;background:#0A0A0A;overflow-x:hidden}
+html,body{margin:0;background:#0A0A0A;overflow-x:clip}
 a{color:var(--accent)}a:hover{color:#F3D58E}
 img{max-width:100%}
 .svc{border:1px solid #3A3A3A;color:#F4F1EA;transition:border-color .15s,color .15s}
@@ -82,6 +82,15 @@ img{max-width:100%}
 @media (max-width:760px){.eng-pop,.eng-card:nth-child(n+3) .eng-pop{left:-1px;right:auto;width:calc(100% + 2px)}}
 @keyframes svcflash{0%{box-shadow:0 0 0 0 rgba(226,184,90,.7)}100%{box-shadow:0 0 0 12px rgba(226,184,90,0)}}
 .svc.flash{animation:svcflash .9s ease-out 2}
+.newsbar{position:sticky;top:0;z-index:80;background:var(--accent);color:#0A0A0A;font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.35)}
+.newsbar-in{max-width:1240px;margin:0 auto;padding:10px 56px 10px 24px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;font-size:14px;font-weight:600;line-height:1.4;text-align:center}
+.newsbar svg{flex:none}
+.newsbar-link{color:#0A0A0A!important;font-weight:800;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.newsbar-link:hover{color:#000!important}
+.newsbar-x{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;background:transparent;color:#0A0A0A;font-size:24px;line-height:1;cursor:pointer;border-radius:4px}
+.newsbar-x:hover{background:rgba(0,0,0,.1)}
+.newsbar-x:focus-visible,.newsbar-link:focus-visible{outline:2px solid #0A0A0A;outline-offset:2px}
+@media (max-width:760px){.newsbar-in{font-size:13px;padding:8px 48px 8px 16px;gap:6px 10px}}
 .mbar{display:none}
 @media (max-width:760px){
  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid #262626}
@@ -109,6 +118,26 @@ window.addEventListener('pageshow',function(e){if(e.persisted)window.scrollTo(0,
 <div id="page-en" lang="en">
 
 
+<!-- ===== NEWS BAR – edit here =====
+ enabled: true/false · text: message · link/linkText: optional button · from/until: show only between these dates (YYYY-MM-DD, inclusive)
+ id: change it for every new message so visitors who closed the old one see the new one -->
+<script id="news-config" type="application/json">
+{"enabled": false,
+ "id": "example",
+ "text": "Meet XL Turbine at [EVENT NAME], [CITY], [DATES] – stand [NO.]",
+ "link": "#contact",
+ "linkText": "Book a meeting",
+ "from": "",
+ "until": ""}
+</script>
+<div id="newsbar" class="newsbar" role="region" aria-label="Announcement" hidden>
+<div class="newsbar-in">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+<span class="newsbar-text"></span>
+<a class="newsbar-link" href="#contact" hidden></a>
+<button type="button" class="newsbar-x" aria-label="Close announcement">&times;</button>
+</div>
+</div>
 <div style="background: #0A0A0A; color: #F4F1EA; font-family: Montserrat, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6">
 
 <!-- Utility bar -->
@@ -550,5 +579,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 document.addEventListener('click',function(e){var c=e.target.closest('.eng-card');document.querySelectorAll('.eng-card.open').forEach(function(x){if(x!==c)x.classList.remove('open');});if(c&&!e.target.closest('.eng-pop'))c.classList.toggle('open');});
 document.querySelectorAll('.eng-card').forEach(function(c){c.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;c.classList.remove('open');if(c.contains(document.activeElement))document.activeElement.blur();});});
 document.addEventListener('click',function(e){var a=e.target.closest('a[data-service]');if(!a)return;var f=document.querySelector('form.quote-form');if(!f)return;var r=f.querySelector('input[name="service"][value="'+a.dataset.service+'"]');if(!r)return;r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));var l=r.closest('.svc');if(l){l.classList.remove('flash');void l.offsetWidth;l.classList.add('flash');setTimeout(function(){l.classList.remove('flash');},2000);}});
+(function(){var bar=document.getElementById('newsbar');var c;try{c=JSON.parse(document.getElementById('news-config').textContent);}catch(e){return;}
+var preview=/[?&]news-preview\b/.test(location.search);
+if(!c||(!c.enabled&&!preview)||!c.text)return;
+var today=new Date().toISOString().slice(0,10);
+if(!preview&&((c.from&&today<c.from)||(c.until&&today>c.until)))return;
+var key='xl-news-closed-'+(c.id||'');try{if(!preview&&localStorage.getItem(key))return;}catch(e){}
+bar.querySelector('.newsbar-text').textContent=c.text;
+var a=bar.querySelector('.newsbar-link');if(c.link){a.href=c.link;a.textContent=(c.linkText||'Learn more')+' →';a.hidden=false;if(/^https?:/.test(c.link)){a.target='_blank';a.rel='noopener';}}
+bar.hidden=false;document.documentElement.style.scrollPaddingTop=bar.offsetHeight+'px';
+bar.querySelector('.newsbar-x').addEventListener('click',function(){bar.hidden=true;document.documentElement.style.scrollPaddingTop='';try{localStorage.setItem(key,'1');}catch(e){}});})();
 </script>
 </body></html>
