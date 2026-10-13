@@ -8,6 +8,7 @@ Početna stranica XL Turbine (engleski), objavljena preko GitHub Pagesa.
 - `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` – ikone
 - `og-image.jpg` – slika koja se prikazuje kad se link podijeli
 - `docs/` – EASA Part 145 certifikat HR.145.051 (PDF)
+- `imprint.html`, `privacy.html` – impressum i pravila privatnosti
 
 ## Kontakt obrazac
 Upiti se šalju na sales@xlturbine.com preko FormSubmit.co.
