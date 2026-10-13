@@ -119,16 +119,22 @@ window.addEventListener('pageshow',function(e){if(e.persisted)window.scrollTo(0,
 
 
 <!-- ===== NEWS BAR – edit here =====
- enabled: true/false · text: message · link/linkText: optional button · from/until: show only between these dates (YYYY-MM-DD, inclusive)
- id: change it for every new message so visitors who closed the old one see the new one -->
+ A list of announcements; the first one that is enabled and within its dates is shown.
+ enabled: true/false · text · link/linkText: optional button · from/until: YYYY-MM-DD, inclusive
+ id: unique per message, so visitors who closed an old one still see a new one -->
 <script id="news-config" type="application/json">
-{"enabled": true,
- "id": "mro-europe-2026",
- "text": "Meet XL Turbine at MRO Europe 2026, Amsterdam 28–29 Oct",
- "link": "",
- "linkText": "",
- "from": "",
- "until": "2026-10-29"}
+[
+ {"enabled": true,
+  "id": "mro-europe-2026",
+  "text": "Meet XL Turbine at MRO Europe 2026, Amsterdam 28–29 Oct",
+  "link": "", "linkText": "",
+  "from": "", "until": "2026-10-29"},
+ {"enabled": true,
+  "id": "european-rotors-2026",
+  "text": "Meet XL Turbine at EUROPEAN ROTORS 2026, Lyon, France, 30 Nov – 3 Dec 2026 · Booth 15 – Starter Area",
+  "link": "", "linkText": "",
+  "from": "2026-11-01", "until": "2026-12-03"}
+]
 </script>
 <div id="newsbar" class="newsbar" role="region" aria-label="Announcement" hidden>
 <div class="newsbar-in">
@@ -579,11 +585,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 document.addEventListener('click',function(e){var c=e.target.closest('.eng-card');document.querySelectorAll('.eng-card.open').forEach(function(x){if(x!==c)x.classList.remove('open');});if(c&&!e.target.closest('.eng-pop'))c.classList.toggle('open');});
 document.querySelectorAll('.eng-card').forEach(function(c){c.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;c.classList.remove('open');if(c.contains(document.activeElement))document.activeElement.blur();});});
 document.addEventListener('click',function(e){var a=e.target.closest('a[data-service]');if(!a)return;var f=document.querySelector('form.quote-form');if(!f)return;var r=f.querySelector('input[name="service"][value="'+a.dataset.service+'"]');if(!r)return;r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));var l=r.closest('.svc');if(l){l.classList.remove('flash');void l.offsetWidth;l.classList.add('flash');setTimeout(function(){l.classList.remove('flash');},2000);}});
-(function(){var bar=document.getElementById('newsbar');var c;try{c=JSON.parse(document.getElementById('news-config').textContent);}catch(e){return;}
-var preview=/[?&]news-preview\b/.test(location.search);
-if(!c||(!c.enabled&&!preview)||!c.text)return;
+(function(){var bar=document.getElementById('newsbar');var list;try{list=JSON.parse(document.getElementById('news-config').textContent);}catch(e){return;}
+if(!Array.isArray(list))list=[list];
+var pm=location.search.match(/[?&]news-preview(?:=([^&]*))?/),preview=!!pm;
 var today=new Date().toISOString().slice(0,10);
-if(!preview&&((c.from&&today<c.from)||(c.until&&today>c.until)))return;
+var c=preview?(list.filter(function(x){return pm[1]&&x.id===decodeURIComponent(pm[1]);})[0]||list[0]):list.filter(function(x){return x&&x.enabled&&x.text&&!(x.from&&today<x.from)&&!(x.until&&today>x.until);})[0];
+if(!c||!c.text)return;
 var key='xl-news-closed-'+(c.id||'');try{if(!preview&&localStorage.getItem(key))return;}catch(e){}
 bar.querySelector('.newsbar-text').textContent=c.text;
 var a=bar.querySelector('.newsbar-link');if(c.link){a.href=c.link;a.textContent=(c.linkText||'Learn more')+' →';a.hidden=false;if(/^https?:/.test(c.link)){a.target='_blank';a.rel='noopener';}}
