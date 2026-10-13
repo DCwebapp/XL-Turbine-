@@ -60,10 +60,27 @@ img{max-width:100%}
 .cert-dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:4px 0 0;font-size:14px}
 .cert-dl dt{color:#A8A39A;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
 .cert-dl dd{margin:0;color:#F4F1EA;font-weight:600}
+.eng-card{position:relative;border:1px solid #262626;border-top:3px solid var(--accent);border-radius:6px;padding:28px;background:#111;cursor:default;transition:border-color .2s,background .2s;outline:none}
+.eng-card:hover,.eng-card:focus-within,.eng-card.open{background:#151515;border-color:#3A3426;border-top-color:var(--accent);z-index:40}
+.eng-card:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.eng-hint{margin-top:14px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.06em;color:var(--accent)}
+.eng-pop{position:absolute;left:-1px;top:calc(100% + 8px);width:max(100%,440px);max-width:calc(100vw - 32px);background:#141414;border:1px solid #3A3426;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.7);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .15s,transform .15s,visibility .15s;z-index:50}
+.eng-card:nth-child(n+3) .eng-pop{left:auto;right:-1px}
+.eng-card:hover .eng-pop,.eng-card:focus-within .eng-pop,.eng-card.open .eng-pop{opacity:1;visibility:visible;transform:none}
+.eng-pop::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}
+.eng-pop-h{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid #262626;font-weight:700;font-size:15px}
+.eng-pop-h span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:12px;color:var(--accent);letter-spacing:.04em;align-self:center}
+.eng-pop-body{max-height:min(380px,60vh);overflow-y:auto;overscroll-behavior:contain}
+.eng-pop table{width:100%;border-collapse:collapse;font-size:13.5px}
+.eng-pop th{position:sticky;top:0;background:#141414;text-align:left;font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#A8A39A;padding:10px 18px;border-bottom:1px solid #222}
+.eng-pop td{padding:8px 18px;border-bottom:1px solid #1C1C1C;color:#E8E4DC;vertical-align:top}
+.eng-pop td:last-child{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:var(--accent);white-space:nowrap}
+.eng-pop tr:last-child td{border-bottom:0}
+@media (max-width:760px){.eng-pop,.eng-card:nth-child(n+3) .eng-pop{left:-1px;right:auto;width:calc(100% + 2px)}}
 .mbar{display:none}
 @media (max-width:760px){
  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid #262626}
- .mbar a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:4px;font-weight:700;font-size:15px;text-decoration:none}
+ .mbar a{font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:4px;font-weight:700;font-size:15px;text-decoration:none}
  .mcall{background:#C62E1C;color:#fff!important}
  .mquote{background:var(--accent);color:#0A0A0A!important}
  body{padding-bottom:72px}
@@ -200,25 +217,103 @@ img{max-width:100%}
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px">SUPPORTED ENGINES</div>
 <h2 style="margin: 0 0 40px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700">Find your engine.</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
-<div style="border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 28px; background: #111">
+<div class="eng-card" tabindex="0" aria-describedby="pop-pt6a">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em; margin-bottom: 8px">TURBOPROP · AIRPLANES</div>
 <div style="font-size: 32px; font-weight: 800; margin-bottom: 12px">PT6A</div>
 <div style="color: #C9C4BA; font-size: 14px">e.g. King Air, Pilatus PC-12, Cessna Caravan</div>
+<div class="eng-hint">View 34 aircraft ↓</div>
+<div class="eng-pop" id="pop-pt6a" role="tooltip">
+<div class="eng-pop-h">PT6A applications <span>34 aircraft</span></div>
+<div class="eng-pop-body"><table><thead><tr><th scope="col">Aircraft</th><th scope="col">Engine model</th></tr></thead><tbody>
+<tr><td>Air Tractor 502A</td><td>PT6A-60AG</td></tr>
+<tr><td>Air Tractor 502B/504</td><td>PT6A-34AG</td></tr>
+<tr><td>Air Tractor 502XP</td><td>PT6A-140AG</td></tr>
+<tr><td>Air Tractor 602</td><td>PT6A-60AG/65AG</td></tr>
+<tr><td>Air Tractor 802/802A/802F/802U</td><td>PT6A-65AG/67AG/67F</td></tr>
+<tr><td>Beechcraft 1900/1900C</td><td>PT6A-65B</td></tr>
+<tr><td>Beechcraft 1900D</td><td>PT6A-67D</td></tr>
+<tr><td>Beechcraft 99A</td><td>PT6A-27/28</td></tr>
+<tr><td>Beechcraft King Air 200/B200</td><td>PT6A-41/42</td></tr>
+<tr><td>Beechcraft King Air 260</td><td>PT6A-52</td></tr>
+<tr><td>Beechcraft King Air 360</td><td>PT6A-60A/67A</td></tr>
+<tr><td>Beechcraft King Air B200GT/250</td><td>PT6A-52</td></tr>
+<tr><td>Beechcraft King Air 300/350/350i/350ER</td><td>PT6A-60A</td></tr>
+<tr><td>Beechcraft King Air B300(350)/B300C(350C)</td><td>PT6A-67A</td></tr>
+<tr><td>Beechcraft King Air F90-1/C90GT/C90GTi/C90GTx</td><td>PT6A-135A</td></tr>
+<tr><td>Cessna 208/208B Caravan I</td><td>PT6A-114/A</td></tr>
+<tr><td>Cessna Conquest I</td><td>PT6A-112/135A</td></tr>
+<tr><td>Cessna Grand Caravan EX</td><td>PT6A-140</td></tr>
+<tr><td>Cessna SkyCourier</td><td>PT6A-65SC</td></tr>
+<tr><td>Conair Aviation S2 Turbo-Firecat</td><td>PT6A-67AF</td></tr>
+<tr><td>Daher Kodiak 100</td><td>PT6A-34</td></tr>
+<tr><td>Daher Kodiak 900</td><td>PT6A-140A</td></tr>
+<tr><td>Daher TBM 700</td><td>PT6A-64</td></tr>
+<tr><td>Daher TBM 850</td><td>PT6A-66D</td></tr>
+<tr><td>Daher TBM 900/910/930/940</td><td>PT6A-66D</td></tr>
+<tr><td>Embraer EMB-314 Super Tucano</td><td>PT6A-68C</td></tr>
+<tr><td>Piaggio P-166-DL3</td><td>PT6A-121</td></tr>
+<tr><td>Piaggio Avanti P-180</td><td>PT6A-66</td></tr>
+<tr><td>Piaggio Avanti II/EVO/P1HH</td><td>PT6A-66B</td></tr>
+<tr><td>Pilatus PC-6 Turbo Porter</td><td>PT6A-27</td></tr>
+<tr><td>Pilatus PC-9 Turbo Trainer</td><td>PT6A-62</td></tr>
+<tr><td>Pilatus PC-12/PC-12NG</td><td>PT6A-67B / PT6A-67P</td></tr>
+<tr><td>Pilatus PC-21</td><td>PT6A-68B</td></tr>
+<tr><td>Reims F406 Caravan II</td><td>PT6A-112</td></tr>
+</tbody></table></div>
 </div>
-<div style="border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 28px; background: #111">
+</div>
+<div class="eng-card" tabindex="0" aria-describedby="pop-pt6t">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em; margin-bottom: 8px">TURBOSHAFT · HELICOPTERS</div>
 <div style="font-size: 32px; font-weight: 800; margin-bottom: 12px">PT6T</div>
 <div style="color: #C9C4BA; font-size: 14px">e.g. Bell 212, Bell 412</div>
+<div class="eng-hint">View 8 helicopters ↓</div>
+<div class="eng-pop" id="pop-pt6t" role="tooltip">
+<div class="eng-pop-h">PT6T applications <span>8 helicopters</span></div>
+<div class="eng-pop-body"><table><thead><tr><th scope="col">Helicopter</th><th scope="col">Engine model</th></tr></thead><tbody>
+<tr><td>Bell 212</td><td>PT6T-3B</td></tr>
+<tr><td>Bell 412/SP/HP/EP</td><td>PT6T-3B/BE/BF/BG/D/DF</td></tr>
+<tr><td>Bell 412 EPI</td><td>PT6T-9</td></tr>
+<tr><td>Bell CFUTTH CH-146 Griffon</td><td>PT6T-3D</td></tr>
+<tr><td>Bell/Subaru 412 EPX/UH-2</td><td>PT6T-9</td></tr>
+<tr><td>Leonardo Helicopters AB212</td><td>PT6T-3/6</td></tr>
+<tr><td>Leonardo Helicopters AB412</td><td>PT6T-3B/BE/D/DF/6</td></tr>
+<tr><td>Sikorsky S-58T</td><td>PT6T-3/6</td></tr>
+</tbody></table></div>
 </div>
-<div style="border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 28px; background: #111">
+</div>
+<div class="eng-card" tabindex="0" aria-describedby="pop-pt6c">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em; margin-bottom: 8px">TURBOSHAFT · HELICOPTERS</div>
 <div style="font-size: 32px; font-weight: 800; margin-bottom: 12px">PT6C</div>
 <div style="color: #C9C4BA; font-size: 14px">e.g. AW139, H175</div>
+<div class="eng-hint">View 3 helicopters ↓</div>
+<div class="eng-pop" id="pop-pt6c" role="tooltip">
+<div class="eng-pop-h">PT6C applications <span>3 helicopters</span></div>
+<div class="eng-pop-body"><table><thead><tr><th scope="col">Helicopter</th><th scope="col">Engine model</th></tr></thead><tbody>
+<tr><td>Airbus Helicopters H175</td><td>PT6C-67E</td></tr>
+<tr><td>Leonardo Helicopters AW139</td><td>PT6C-67C/C1</td></tr>
+<tr><td>TEMSCO UH-1 Global Eagle</td><td>PT6C-67D</td></tr>
+</tbody></table></div>
 </div>
-<div style="border: 1px solid #262626; border-top: 3px solid var(--accent); border-radius: 6px; padding: 28px; background: #111">
+</div>
+<div class="eng-card" tabindex="0" aria-describedby="pop-pw200">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #A8A39A; letter-spacing: 0.08em; margin-bottom: 8px">TURBOSHAFT · HELICOPTERS</div>
 <div style="font-size: 32px; font-weight: 800; margin-bottom: 12px">PW200</div>
 <div style="color: #C9C4BA; font-size: 14px">e.g. H135, Bell 427, AW109</div>
+<div class="eng-hint">View 9 helicopters ↓</div>
+<div class="eng-pop" id="pop-pw200" role="tooltip">
+<div class="eng-pop-h">PW200 applications <span>9 helicopters</span></div>
+<div class="eng-pop-body"><table><thead><tr><th scope="col">Helicopter</th><th scope="col">Engine model</th></tr></thead><tbody>
+<tr><td>Airbus Helicopters H135 P1/P2/P3</td><td>PW206B/B2/B3</td></tr>
+<tr><td>Leonardo Helicopters AW109 Power</td><td>PW206C</td></tr>
+<tr><td>Leonardo Helicopters AW109 Grand</td><td>PW207C</td></tr>
+<tr><td>Leonardo Helicopters AW109 Trekker</td><td>PW207C</td></tr>
+<tr><td>Bell 427</td><td>PW207D</td></tr>
+<tr><td>Bell 429</td><td>PW207D1/D2</td></tr>
+<tr><td>MD Explorer 900/902</td><td>PW206A/E/207E</td></tr>
+<tr><td>Leonardo Helicopters AW169</td><td>PW210A/A1</td></tr>
+<tr><td>Sikorsky S-76D</td><td>PW210S</td></tr>
+</tbody></table></div>
+</div>
 </div>
 </div>
 </section>
@@ -440,5 +535,6 @@ document.addEventListener('submit',function(e){
 });
 document.addEventListener('click',function(e){var b=e.target.closest('.dd-btn');document.querySelectorAll('.dd').forEach(function(d){var on=b&&d.contains(b)?!d.classList.contains('open'):false;if(!b&&d.contains(e.target))on=false;d.classList.toggle('open',on);d.querySelector('.dd-btn').setAttribute('aria-expanded',on);});});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.dd.open').forEach(function(d){d.classList.remove('open');d.querySelector('.dd-btn').setAttribute('aria-expanded','false');d.querySelector('.dd-btn').focus();});});
+document.addEventListener('click',function(e){var c=e.target.closest('.eng-card');document.querySelectorAll('.eng-card.open').forEach(function(x){if(x!==c)x.classList.remove('open');});if(c&&!e.target.closest('.eng-pop'))c.classList.toggle('open');});
 </script>
 </body></html>
