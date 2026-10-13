@@ -14,5 +14,5 @@ Početna stranica XL Turbine (engleski), objavljena preko GitHub Pagesa.
 Upiti se šalju na sales@xlturbine.com preko FormSubmit.co.
 Prvi upit pokreće e-mail za aktivaciju na sales@xlturbine.com – treba kliknuti "Activate" u tom e-mailu, nakon toga upiti stižu normalno.
 
-## Kod spajanja domene
-U `index.html` zamijeniti `https://dcwebapp.github.io/XL-Turbine-/` s `https://www.xlturbine.com/` (og:url, og:image).
+## Domena
+Stranica je na https://www.xlturbine.com (datoteka `CNAME`). DNS: Squarespace – A @ → 185.199.108–111.153, CNAME www → dcwebapp.github.io. Google Workspace MX/TXT zapise ne dirati.
