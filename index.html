@@ -16,6 +16,14 @@ img{max-width:100%}
 .svc:has(input:checked){border-color:var(--accent);color:var(--accent)}
 .svc input{accent-color:var(--accent);width:16px;height:16px;margin:0}
 .svc:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.yt{position:relative;display:block;width:100%;max-width:880px;aspect-ratio:16/9;padding:0;border:1px solid #262626;border-radius:8px;overflow:hidden;background:#000;cursor:pointer;color:#F4F1EA;font:inherit}
+.yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .3s;filter:brightness(.8)}
+.yt:hover img{transform:scale(1.02);filter:brightness(.95)}
+.yt-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:transform .2s}
+.yt:hover .yt-play{transform:scale(1.08)}
+.yt-label{position:absolute;left:20px;bottom:16px;font-weight:700;font-size:15px;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.yt:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .mbar{display:none}
 @media (max-width:760px){
  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid #262626}
@@ -235,16 +243,11 @@ Watch the test stand in action
 <section id="video" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 32px">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px">SEE IT IN ACTION</div>
 <h2 style="margin: 0 0 32px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700">Our fuel nozzle test stand.</h2>
-<a href="https://www.youtube.com/watch?v=CQKw4jsEMTg" target="_blank" rel="noopener" aria-label="Watch the XL Turbine test stand video on YouTube" style="position: relative; display: flex; align-items: center; justify-content: center; border-radius: 8px; overflow: hidden; border: 1px solid #262626; aspect-ratio: 16 / 9; background: #000; text-decoration: none; color: #F4F1EA">
-<img src="assets/e34ad5af3002616d5dec17c82b623cbe.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55">
-<span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 24px">
-<span style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: inline-flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M7 4l13 8-13 8z"></path></svg></span>
-<span style="font-weight: 700; font-size: 20px">Play video</span>
-</span>
-</a>
-<!-- Live site: replace the link above with
-<iframe src="https://www.youtube-nocookie.com/embed/CQKw4jsEMTg?rel=0" title="XL Turbine fuel nozzle test stand" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0"></iframe>
--->
+<button type="button" class="yt" data-id="CQKw4jsEMTg" aria-label="Watch the XL Turbine test stand video on YouTube">
+<img src="https://i.ytimg.com/vi/CQKw4jsEMTg/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
+<span class="yt-play"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M7 4l13 8-13 8z"></path></svg></span>
+<span class="yt-label">Play video</span>
+</button>
 <a href="https://www.youtube.com/watch?v=CQKw4jsEMTg" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 16px; font-weight: 700; text-decoration: none; min-height: 44px; align-items: center">Watch on YouTube &#8599;</a>
 </section>
 
@@ -513,16 +516,11 @@ Pogledajte ispitni stol u radu
 <section id="hr-video" style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 32px">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px">POGLEDAJTE U RADU</div>
 <h2 style="margin: 0 0 32px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700">Naš ispitni stol za mlaznice.</h2>
-<a href="https://www.youtube.com/watch?v=CQKw4jsEMTg" target="_blank" rel="noopener" aria-label="Pogledajte video ispitnog stola XL Turbine na YouTubeu" style="position: relative; display: flex; align-items: center; justify-content: center; border-radius: 8px; overflow: hidden; border: 1px solid #262626; aspect-ratio: 16 / 9; background: #000; text-decoration: none; color: #F4F1EA">
-<img src="assets/e34ad5af3002616d5dec17c82b623cbe.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55">
-<span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 24px">
-<span style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: inline-flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M7 4l13 8-13 8z"></path></svg></span>
-<span style="font-weight: 700; font-size: 20px">Pokreni video</span>
-</span>
-</a>
-<!-- Live site: replace the link above with
-<iframe src="https://www.youtube-nocookie.com/embed/CQKw4jsEMTg?rel=0" title="XL Turbine fuel nozzle test stand" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0"></iframe>
--->
+<button type="button" class="yt" data-id="CQKw4jsEMTg" aria-label="Pogledajte video ispitnog stola XL Turbine na YouTubeu">
+<img src="https://i.ytimg.com/vi/CQKw4jsEMTg/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
+<span class="yt-play"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M7 4l13 8-13 8z"></path></svg></span>
+<span class="yt-label">Pokreni video</span>
+</button>
 <a href="https://www.youtube.com/watch?v=CQKw4jsEMTg" target="_blank" rel="noopener" style="display: inline-flex; margin-top: 16px; font-weight: 700; text-decoration: none; min-height: 44px; align-items: center">Pogledajte na YouTubeu &#8599;</a>
 </section>
 
@@ -604,5 +602,6 @@ Pogledajte ispitni stol u radu
  set(l);
  document.addEventListener('click',function(e){var b=e.target.closest('.lang');if(b){set(b.dataset.lang);window.scrollTo(0,0);}});
 })();
+document.addEventListener('click',function(e){var y=e.target.closest('.yt');if(!y||y.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+y.dataset.id+'?autoplay=1&rel=0';f.title=y.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;y.innerHTML='';y.appendChild(f);});
 </script>
 </body></html>
