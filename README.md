@@ -1,8 +1,8 @@
 # XL Turbine – web
 
-Početna stranica XL Turbine (EN/HR), objavljena preko GitHub Pagesa.
+Početna stranica XL Turbine (engleski), objavljena preko GitHub Pagesa.
 
-- `index.html` – stranica (preklopnik EN/HR u zaglavlju)
+- `index.html` – stranica
 - `assets/` – logo i fotografije
 - `fonts/` – Montserrat i IBM Plex Mono (SIL Open Font License, vidi `fonts/OFL-*.txt`), učitavaju se lokalno, bez Google Fonts
 - `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` – ikone
