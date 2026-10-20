@@ -114,6 +114,97 @@ window.scrollTo(0,0);
 window.addEventListener('load',function(){window.scrollTo(0,0);});
 window.addEventListener('pageshow',function(e){if(e.persisted)window.scrollTo(0,0);});
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.xlturbine.com/#org",
+   "name": "XL Turbine",
+   "legalName": "XL Turbine d.o.o.",
+   "url": "https://www.xlturbine.com/",
+   "logo": "https://www.xlturbine.com/icon-512.png",
+   "email": "sales@xlturbine.com",
+   "telephone": "+385 98 417 828",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kninski trg 17",
+    "postalCode": "10000",
+    "addressLocality": "Zagreb",
+    "addressCountry": "HR"
+   },
+   "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "EASA Part 145 Maintenance Organisation Approval HR.145.051",
+    "credentialCategory": "EASA Part 145 approval",
+    "recognizedBy": {
+     "@type": "Organization",
+     "name": "Croatian Civil Aviation Agency (CCAA)"
+    }
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "telephone": "+385 98 417 828",
+    "email": "sales@xlturbine.com",
+    "availableLanguage": [
+     "English",
+     "Croatian"
+    ],
+    "areaServed": "Worldwide"
+   }
+  },
+  {
+   "@type": "LocalBusiness",
+   "@id": "https://www.xlturbine.com/#workshop",
+   "name": "XL Turbine – Part 145 fuel nozzle workshop",
+   "parentOrganization": {
+    "@id": "https://www.xlturbine.com/#org"
+   },
+   "url": "https://www.xlturbine.com/",
+   "image": "https://www.xlturbine.com/og-image.jpg",
+   "telephone": "+385 98 417 828",
+   "email": "sales@xlturbine.com",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Josipa Zorića 133",
+    "postalCode": "10370",
+    "addressLocality": "Dugo Selo",
+    "addressCountry": "HR"
+   },
+   "areaServed": "Worldwide",
+   "description": "EASA Part 145 (HR.145.051) shop for testing, repair and exchange of Pratt & Whitney Canada PT6A, PT6T, PT6C and PW200 fuel nozzles, plus independent pre-purchase aircraft inspections.",
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Fuel nozzle testing and repair",
+      "description": "Flow testing, spray pattern check, cleaning and repair of P&WC PT6A, PT6T, PT6C and PW200 fuel nozzles."
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Fuel nozzle exchange",
+      "description": "Exchange fuel nozzle sets on stock, ready to ship from Zagreb."
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Pre-buy inspection",
+      "description": "Independent pre-purchase inspections for all aircraft types."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head><body>
 <div id="page-en" lang="en">
 
@@ -430,7 +521,7 @@ Watch the test stand in action
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px">SEE IT IN ACTION</div>
 <h2 style="margin: 0 0 32px; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700">Our fuel nozzle test stand.</h2>
 <button type="button" class="yt" data-id="CQKw4jsEMTg" aria-label="Watch the XL Turbine test stand video on YouTube">
-<img src="assets/video-poster.jpg" alt="" loading="lazy" width="1280" height="720">
+<img src="assets/video-poster.jpg" alt="XL Turbine fuel nozzle test stand – video" loading="lazy" width="1280" height="720">
 <span class="yt-play"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="#0A0A0A"><path d="M7 4l13 8-13 8z"></path></svg></span>
 <span class="yt-label">Play video</span>
 </button>
