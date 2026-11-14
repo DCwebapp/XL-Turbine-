@@ -620,16 +620,16 @@ Watch the test stand in action
 <label class="svc" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 4px; cursor: pointer; padding: 10px 16px; font-weight: 600; font-size: 14px; min-height: 44px; box-sizing: border-box"><input type="radio" name="service" value="Exchange set" required> Exchange set</label>
 <label class="svc" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 4px; cursor: pointer; padding: 10px 16px; font-weight: 600; font-size: 14px; min-height: 44px; box-sizing: border-box"><input type="radio" name="service" value="Pre-buy inspection" required> Pre-buy inspection</label>
 </div>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Engine type
+<label class="nozzle-only" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Engine type
 <select name="engine_type" style="background: #0A0A0A; color: #F4F1EA; border: 1px solid #3A3A3A; border-radius: 4px; padding: 12px; font: inherit; font-size: 15px; min-height: 44px"><option>PT6A</option><option>PT6T</option><option>PT6C</option><option>PW200</option></select>
 </label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Number of nozzles
+<label class="nozzle-only" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Number of nozzles
 <input type="number" name="nozzles" min="1" inputmode="numeric" placeholder="e.g. 14" style="background: #0A0A0A; color: #F4F1EA; border: 1px solid #3A3A3A; border-radius: 4px; padding: 12px; font: inherit; font-size: 15px; min-height: 44px; box-sizing: border-box">
 </label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Part number
+<label class="nozzle-only" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Part number
 <input type="text" name="part_number" placeholder="P/N" style="background: #0A0A0A; color: #F4F1EA; border: 1px solid #3A3A3A; border-radius: 4px; padding: 12px; font: inherit; font-size: 15px; min-height: 44px; box-sizing: border-box">
 </label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Aircraft registration
+<label class="reg-field" style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Aircraft registration
 <input type="text" name="registration" placeholder="e.g. 9A-XXX" style="background: #0A0A0A; color: #F4F1EA; border: 1px solid #3A3A3A; border-radius: 4px; padding: 12px; font: inherit; font-size: 15px; min-height: 44px; box-sizing: border-box">
 </label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #C9C4BA">Name &amp; company
@@ -686,6 +686,11 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dd-btn');
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.dd.open').forEach(function(d){d.classList.remove('open');d.querySelector('.dd-btn').setAttribute('aria-expanded','false');d.querySelector('.dd-btn').focus();});});
 document.addEventListener('click',function(e){var c=e.target.closest('.eng-card');document.querySelectorAll('.eng-card.open').forEach(function(x){if(x!==c)x.classList.remove('open');});if(c&&!e.target.closest('.eng-pop'))c.classList.toggle('open');});
 document.querySelectorAll('.eng-card').forEach(function(c){c.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;c.classList.remove('open');if(c.contains(document.activeElement))document.activeElement.blur();});});
+/* Pre-buy: hide nozzle-specific fields (and don't submit them) */
+(function(){var f=document.querySelector('form.quote-form');if(!f)return;
+function sync(){var r=f.querySelector('input[name="service"]:checked');var pb=!!r&&r.value==='Pre-buy inspection';
+var rg=f.querySelector('.reg-field');if(rg)rg.style.gridColumn=pb?'1 / -1':'';f.querySelectorAll('.nozzle-only').forEach(function(l){l.hidden=pb;l.style.display=pb?'none':'flex';l.querySelectorAll('input,select').forEach(function(i){i.disabled=pb;});});}
+f.addEventListener('change',function(e){if(e.target.name==='service')sync();});f.addEventListener('reset',function(){setTimeout(sync,0);});sync();})();
 document.addEventListener('click',function(e){var a=e.target.closest('a[data-service]');if(!a)return;var f=document.querySelector('form.quote-form');if(!f)return;var r=f.querySelector('input[name="service"][value="'+a.dataset.service+'"]');if(!r)return;r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));var l=r.closest('.svc');if(l){l.classList.remove('flash');void l.offsetWidth;l.classList.add('flash');setTimeout(function(){l.classList.remove('flash');},2000);}});
 (function(){var bar=document.getElementById('newsbar');var list;try{list=JSON.parse(document.getElementById('news-config').textContent);}catch(e){return;}
 if(!Array.isArray(list))list=[list];
