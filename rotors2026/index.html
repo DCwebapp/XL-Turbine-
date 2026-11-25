@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>XL Turbine | European Rotors 2026 Giveaway</title>
+  <meta name="description" content="Visit XL Turbine at European Rotors 2026, Stand #15, and enter the raffle for the Old Pilot's Flight Box.">
+  <style>
+    :root {
+      --bg: #0A0A0A; --card: #161616; --field: #222; --line: #383838;
+      --text: #fff; --muted: #B5B5B5; --dim: #8A8A8A;
+      --accent: #FFD966; --accent-ink: #000; --teal: #0097A7; --err: #FF7A7A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      display: flex; justify-content: center; padding: 16px 14px 28px;
+    }
+    .container {
+      width: 100%; max-width: 440px; background: var(--card); border: 1px solid #2A2A2A;
+      border-top: 4px solid var(--accent); border-radius: 16px; padding: 22px 20px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.7); align-self: flex-start;
+    }
+    .logo { display: block; height: 40px; width: auto; margin-bottom: 16px; border-radius: 4px; }
+    .badge {
+      display: inline-block; background: rgba(255,217,102,.14); color: var(--accent);
+      font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 20px; margin-bottom: 12px;
+    }
+    h1 { font-size: 23px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; letter-spacing: .2px; }
+    .subtitle { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+    .prize { background: #202020; border-left: 3px solid var(--accent); padding: 12px 14px; border-radius: 8px; margin-bottom: 22px; }
+    .prize-title { font-size: 14px; font-weight: 700; color: var(--accent); }
+    .prize-desc { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .timing { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: -8px 0 22px; }
+    .timing div { background: #202020; border: 1px solid #2E2E2E; border-radius: 8px; padding: 10px 12px; }
+    .timing small { display: block; font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--dim); }
+    .timing b { display: block; font-size: 26px; line-height: 1.15; font-weight: 800; margin-top: 2px; }
+    .timing span { display: block; font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .timing .draw b { color: var(--accent); }
+    .closed { display: none; text-align: center; padding: 10px 0 4px; }
+    .closed h2 { font-size: 22px; margin-bottom: 8px; }
+    .closed p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .form-group { margin-bottom: 15px; }
+    label, .group-label {
+      display: block; font-size: 11px; font-weight: 700; color: #DDD; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    .opt { color: var(--dim); font-weight: 600; text-transform: none; letter-spacing: 0; }
+    input[type="text"], input[type="email"] {
+      width: 100%; background: var(--field); border: 1px solid var(--line); border-radius: 8px;
+      padding: 14px; color: var(--text); font-size: 16px; /* 16px stops iOS zoom on focus */
+      outline: none; transition: border-color .2s, background .2s;
+    }
+    input[type="text"]:focus, input[type="email"]:focus { border-color: var(--accent); background: #2A2A2A; }
+    input::placeholder { color: #6E6E6E; }
+    .fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border: 0; }
+    .fleet-grid input { position: absolute; opacity: 0; pointer-events: none; }
+    .fleet-grid label {
+      margin: 0; background: var(--field); border: 1px solid var(--line); border-radius: 8px;
+      padding: 13px 8px; text-align: center; font-size: 13px; font-weight: 600; color: #CCC;
+      text-transform: none; letter-spacing: 0; cursor: pointer; transition: .15s;
+    }
+    .fleet-grid .wide { grid-column: span 2; }
+    .fleet-grid input:checked + label { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
+    .fleet-grid input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0; text-transform: none; letter-spacing: 0; font-weight: 400; cursor: pointer; }
+    .check input { flex: none; margin-top: 2px; width: 18px; height: 18px; accent-color: var(--accent); }
+    .check span { font-weight: 400; font-size: 12px; color: var(--muted); line-height: 1.45; }
+    .check a, .fine a { color: var(--accent); }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .btn {
+      width: 100%; background: var(--accent); color: var(--accent-ink); font-size: 15px; font-weight: 800;
+      padding: 16px; border: none; border-radius: 10px; cursor: pointer; text-transform: uppercase;
+      letter-spacing: .5px; margin-top: 6px; transition: transform .1s, opacity .2s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn[disabled] { opacity: .6; cursor: progress; }
+    .error { display: none; margin-top: 12px; font-size: 13px; color: var(--err); line-height: 1.4; }
+    .fine { font-size: 11px; color: var(--dim); line-height: 1.45; margin-top: 14px; }
+    details.terms { margin-top: 10px; font-size: 11px; color: var(--dim); line-height: 1.5; }
+    details.terms summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+    details.terms ol { padding-left: 18px; margin-top: 8px; }
+    details.terms li { margin-bottom: 4px; }
+    .success { display: none; text-align: center; padding: 6px 0 4px; }
+    .success h2 { font-size: 24px; margin-bottom: 6px; }
+    .success p { font-size: 13px; color: var(--muted); }
+    .ticket { background: #202020; border: 2px dashed var(--accent); border-radius: 12px; padding: 16px; margin: 20px 0 14px; }
+    .ticket small { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .ticket-num { font-size: 27px; font-weight: 800; color: var(--accent); letter-spacing: 1px; margin-top: 4px; word-break: break-all; }
+    .btn-guide {
+      display: inline-block; background: var(--teal); color: #fff; font-size: 14px; font-weight: 700;
+      padding: 13px 20px; border-radius: 8px; text-decoration: none; margin-top: 16px;
+    }
+    .footer { text-align: center; margin-top: 20px; font-size: 11px; color: #6A6A6A; line-height: 1.6; }
+    .footer a { color: #8A8A8A; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <img class="logo" src="/assets/16cc4df4e5dc227758aa9982f51cf912.jpg" alt="XL Turbine">
+
+    <section id="formSection">
+      <span class="badge">EASA Part 145 • HR.145.051</span>
+      <h1>XL TURBINE GIVEAWAY</h1>
+      <p class="subtitle">European Rotors 2026 • Eurexpo Lyon • Stand #15</p>
+
+      <div class="prize">
+        <div class="prize-title">🎁 Old Pilot’s Flight Box – Helicopter Edition</div>
+        <div class="prize-desc">Barrel-aged gin (700 ml) • 2 crystal glasses • jigger</div>
+      </div>
+
+      <div class="timing">
+        <div><small>Entries close</small><b>13:30</b><span>Thu, Dec 3 · CET</span></div>
+        <div class="draw"><small>Live draw</small><b>14:00</b><span>Thu, Dec 3 · Stand #15</span></div>
+      </div>
+
+      <form id="raffleForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full name *</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name" maxlength="100" placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company *</label>
+          <input type="text" id="company" name="company" required autocomplete="organization" maxlength="150" placeholder="Aero Operations">
+        </div>
+
+        <div class="form-group">
+          <label for="jobTitle">Job title <span class="opt">(optional)</span></label>
+          <input type="text" id="jobTitle" name="jobTitle" autocomplete="organization-title" maxlength="100" placeholder="Fleet Manager">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address *</label>
+          <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" maxlength="150" placeholder="john@company.com">
+        </div>
+
+        <fieldset class="form-group" style="border:0">
+          <legend class="group-label">Primary fleet / engine type <span class="opt">(optional)</span></legend>
+          <div class="fleet-grid">
+            <input type="radio" name="engineFleet" id="f1" value="PW200 Series"><label for="f1">PW200 Series</label>
+            <input type="radio" name="engineFleet" id="f2" value="PT6C Series"><label for="f2">PT6C Series</label>
+            <input type="radio" name="engineFleet" id="f3" value="PT6T Series"><label for="f3">PT6T Series</label>
+            <input type="radio" name="engineFleet" id="f4" value="PT6A Series"><label for="f4">PT6A Series</label>
+            <input type="radio" name="engineFleet" id="f5" value="MRO Partner / Other"><label for="f5" class="wide">MRO Partner / Other</label>
+          </div>
+        </fieldset>
+
+        <!-- Honeypot: humans never see or fill this -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="check">
+          <input type="checkbox" id="terms" required>
+          <span>I am 18 or older and accept the <a href="#terms" onclick="document.getElementById('termsBox').open=true">raffle terms</a>. *</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" id="marketing">
+          <span>Send me XL Turbine technical updates and maintenance insights by email. <span class="opt">(optional – not required to enter)</span></span>
+        </label>
+
+        <button type="submit" class="btn" id="submitBtn">Enter raffle &amp; get guide ➔</button>
+        <p class="error" id="errorMsg" role="alert"></p>
+
+        <p class="fine">
+          We use your details to run the raffle, send your ticket and the service guide, and follow up on your visit to our stand.
+          See our <a href="/privacy.html">privacy policy</a>.
+        </p>
+
+        <details class="terms" id="termsBox">
+          <summary id="terms">Raffle terms</summary>
+          <ol>
+            <li>Organiser: XL Turbine d.o.o., Josipa Zorića 133, Dugo Selo, Croatia.</li>
+            <li>Open to visitors of European Rotors 2026 aged 18 or over. The prize contains alcohol.</li>
+            <li>One entry per person (per email address). Entries close Dec 3, 2026 at 13:30 CET.</li>
+            <li>The winner is drawn at random on Dec 3, 2026 at 14:00 CET at Stand #15, Eurexpo Lyon, and is notified by email. Presence at the draw is not required.</li>
+            <li>The winner must reply within 7 days of the notification email. Otherwise the prize goes to a reserve winner drawn at the same time.</li>
+            <li>The prize cannot be exchanged for cash. If it cannot be handed over at the stand, XL Turbine will arrange delivery where local law allows the shipping of alcohol.</li>
+            <li>XL Turbine employees and their families are not eligible.</li>
+          </ol>
+        </details>
+      </form>
+    </section>
+
+    <section id="closedSection" class="closed">
+      <span class="badge">European Rotors 2026 • Stand #15</span>
+      <h2>Entries are closed</h2>
+      <p>The raffle closed on Dec 3, 2026 at 13:30 CET.<br>The live draw takes place at 14:00 at Stand #15, and the winner is notified by email.</p>
+      <p style="margin-top:12px">Thank you for visiting XL Turbine!</p>
+      <a class="btn-guide" target="_blank" rel="noopener"
+         href="https://docs.google.com/presentation/d/103E63P3lVQfLdmqrC7WyBJh2QI9bAP44NnubeDBuFaY/view">📄 Open XL Turbine service guide</a>
+    </section>
+
+    <section id="successSection" class="success" aria-live="polite">
+      <span class="badge">Prize entry confirmed</span>
+      <h2>You're entered! 🎉</h2>
+      <p>Thank you for visiting XL Turbine at Stand #15.</p>
+
+      <div class="ticket">
+        <small>Your raffle ticket</small>
+        <div class="ticket-num" id="ticketNum">—</div>
+      </div>
+
+      <p id="ticketNote">A confirmation has been sent to <strong id="sentTo"></strong>.</p>
+      <p style="margin-top:8px">Live draw: <strong style="color:#fff">Thu, Dec 3 at 14:00 CET</strong> • Stand #15</p>
+      <p style="margin-top:4px; font-size:12px">You don’t need to be there – the winner is also notified by email.</p>
+
+      <a class="btn-guide" target="_blank" rel="noopener"
+         href="https://docs.google.com/presentation/d/103E63P3lVQfLdmqrC7WyBJh2QI9bAP44NnubeDBuFaY/view">📄 Open XL Turbine service guide</a>
+    </section>
+
+    <footer class="footer">
+      XL Turbine d.o.o. • Fuel Nozzle Specialists<br>
+      <a href="/">www.xlturbine.com</a> • <a href="/privacy.html">Privacy</a> • <a href="/imprint.html">Imprint</a>
+    </footer>
+  </main>
+
+  <script>
+    // Google Apps Script web app (/exec URL of the deployment)
+    var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6nxxiWckH8F_jbAQS-n-aZAe1j9Vqjz55n0u7W_82dwbSzJju6-rWuE74BEp7OgG6/exec";
+    var STORE_KEY = "xlt-rotors2026-ticket";
+
+    var form = document.getElementById('raffleForm');
+    var btn = document.getElementById('submitBtn');
+    var errorMsg = document.getElementById('errorMsg');
+    var BTN_LABEL = btn.innerHTML;
+
+    function showError(msg) { errorMsg.textContent = msg; errorMsg.style.display = 'block'; }
+
+    function showSuccess(ticket, email, existing) {
+      document.getElementById('ticketNum').textContent = ticket;
+      document.getElementById('sentTo').textContent = email;
+      if (existing) {
+        document.getElementById('ticketNote').innerHTML =
+          'This email is already entered – here is your ticket again.';
+      }
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successSection').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    var DEADLINE = new Date('2026-12-03T13:30:00+01:00'); // server enforces this too
+
+    function showClosed() {
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('closedSection').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    // Same phone already entered? Show the ticket instead of the form.
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch (e) {}
+    if (saved && saved.ticket) showSuccess(saved.ticket, saved.email, false);
+    else if (new Date() > DEADLINE) showClosed();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+
+      var fullName = form.fullName.value.trim();
+      var company = form.company.value.trim();
+      var email = form.email.value.trim();
+      var fleet = form.querySelector('input[name="engineFleet"]:checked');
+
+      if (!fullName || !company || !email) { showError('Please fill in your name, company and email.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showError('Please check your email address.'); form.email.focus(); return; }
+      if (!document.getElementById('terms').checked) { showError('Please confirm you are 18+ and accept the raffle terms.'); return; }
+
+      var payload = {
+        fullName: fullName,
+        company: company,
+        jobTitle: form.jobTitle.value.trim(),
+        email: email,
+        engineFleet: fleet ? fleet.value : 'Not specified',
+        marketing: document.getElementById('marketing').checked,
+        website: form.website.value // honeypot
+      };
+
+      btn.disabled = true;
+      btn.innerHTML = 'Sending…';
+
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 25000);
+
+      // text/plain = "simple" request: no CORS preflight, and the JSON reply stays readable.
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          clearTimeout(timer);
+          if (res.result === 'closed') { showClosed(); return; }
+          if (res.result !== 'success') throw new Error(res.message || 'Server error');
+          try { localStorage.setItem(STORE_KEY, JSON.stringify({ ticket: res.ticketNumber, email: email })); } catch (e) {}
+          showSuccess(res.ticketNumber, email, res.existing);
+        })
+        .catch(function () {
+          clearTimeout(timer);
+          btn.disabled = false;
+          btn.innerHTML = BTN_LABEL;
+          showError('We couldn’t submit your entry – the hall network may be slow. Please tap the button again. (You won’t be entered twice.)');
+        });
+    });
+  </script>
+</body>
+</html>
